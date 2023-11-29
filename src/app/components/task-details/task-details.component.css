@@ -1,0 +1,18 @@
+.highlights {
+    margin-top: 24px;
+    display: flex;
+}
+
+.highlight {
+    display: flex;
+    align-items: center;
+    margin-right: 24px;
+}
+
+mat-icon {
+    margin-right: 8px;
+}
+
+.actions {
+    margin-top: 24px;
+}

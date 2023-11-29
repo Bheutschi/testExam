@@ -1,0 +1,43 @@
+:host {
+    display: flex;
+    flex-direction: column;
+}
+
+.main-action-container {
+    margin: 12px;
+}
+
+.content {
+    display: flex;
+    flex-grow: 1;
+}
+
+.content .right-container {
+    display: flex;
+    max-width: 408px;
+    min-width: 408px;
+    padding: 24px;
+    position: relative;
+}
+
+.content .right-container mat-divider {
+    margin-right: 24px;
+}
+
+app-task-list {
+    flex-grow: 1;
+}
+
+.content .right-container.hidden {
+    width: 0;
+    min-width: 0;
+    max-width: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.close-button {
+    position: absolute;
+    right: 12px;
+    top: 12px;
+}

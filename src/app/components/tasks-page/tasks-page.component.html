@@ -1,0 +1,30 @@
+<app-header></app-header>
+<div class="main-action-container">
+    <button
+            mat-raised-button
+            color="accent"
+            [routerLink]="['/tasks', 'new']">
+        <mat-icon>add</mat-icon>
+        Add a task
+    </button>
+</div>
+<div class="content">
+    <app-task-list
+            [tasks]="tasksService.getTasks()"
+            (onRemoveTaskClicked)="onRemoveTaskClicked($event)"
+    >
+    </app-task-list>
+    <div [class.hidden]="!rightContent.isActivated" class="right-container">
+        <mat-divider [vertical]="true"></mat-divider>
+        <router-outlet #rightContent="outlet">
+        </router-outlet>
+        <button
+                mat-icon-button
+                class="close-button"
+                [matTooltip]="'Close'"
+                [matTooltipPosition]="'left'"
+                [routerLink]="'/tasks'">
+            <mat-icon>close</mat-icon>
+        </button>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+:host {
+    display: block;
+}
+
+.form-container {
+    margin: 200px auto;
+    width: 384px;
+    display: flex;
+    flex-direction: column;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.error {
+    color: red;
+}

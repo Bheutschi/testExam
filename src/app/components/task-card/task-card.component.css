@@ -1,0 +1,17 @@
+:host {
+    display: block;
+    padding: 12px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+
+mat-card-actions button {
+    text-transform: uppercase;
+}
+
+mat-card-actions button mat-icon {
+    margin-right: 4px;
+}

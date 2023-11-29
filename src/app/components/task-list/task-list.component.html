@@ -1,0 +1,6 @@
+<app-task-card
+    *ngFor="let task of tasks"
+    [task]="task"
+    (onRemoveClicked)="onRemoveTaskClicked.emit($event)"
+    >
+</app-task-card>

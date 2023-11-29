@@ -1,0 +1,37 @@
+<ng-container *ngIf="!is404">
+    <h2>{{taskId ? '#'+taskId : 'New task' }}</h2>
+    <form [formGroup]="form">
+        <mat-form-field>
+            <mat-label>Title</mat-label>
+            <input matInput formControlName="title" type="text">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Description</mat-label>
+            <textarea matInput formControlName="description" cdkTextareaAutosize></textarea>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Due date</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="dueDate" placeholder="Date format: MM.DD.YYYY, example: 24.01.2022">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Assigned to</mat-label>
+            <mat-select formControlName="assignedTo">
+                <mat-option *ngFor="let user of usersService.getUsers()" [value]="user">
+                    {{ user.firstName + ' ' + user.lastName }}
+                </mat-option>
+                <mat-option [value]="null">None</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </form>
+    <button
+            mat-raised-button
+            color="primary"
+            [disabled]="form.invalid"
+            (click)="onSaveClicked()">
+        Save
+    </button>
+</ng-container>
+<app-error-not-found *ngIf="is404" [message]="'Task not found'">
+</app-error-not-found>

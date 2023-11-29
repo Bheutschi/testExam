@@ -1,0 +1,23 @@
+<ng-container *ngIf="task">
+    <h2>#{{ task.id }}</h2>
+    <h1>{{ task.title }}</h1>
+    <p>{{ task.description }}</p>
+    <div class="highlights">
+        <div class="highlight">
+            <mat-icon [matTooltip]="'Assigned to'">face</mat-icon>
+            <span>{{ task.assignedTo ?
+                    task.assignedTo.firstName + ' ' + task.assignedTo.lastName :
+                    'Not assigned yet'
+                }}</span>
+        </div>
+        <div class="highlight">
+            <mat-icon [matTooltip]="'Due date'">event</mat-icon>
+            <span>{{ task.dueDate ? task.dueDate.format('DD.MM.YYYY') : 'No due date' }}</span>
+        </div>
+    </div>
+    <div class="actions">
+        <button mat-stroked-button [routerLink]="['edit']"><mat-icon>edit</mat-icon> Edit</button>
+    </div>
+</ng-container>
+<app-error-not-found *ngIf="!task" [message]="'Task not found'">
+</app-error-not-found>
